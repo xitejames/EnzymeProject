@@ -1,0 +1,113 @@
+{
+  "Accounts": [
+      {
+          "id": 1,
+          "studentname": "Sarah",
+          "password": "password!",
+          "salt": "??",
+          "courseId": 2
+      },
+      {
+          "id": 2,
+          "studentname": "George",
+          "password": "password!",
+          "salt": "??",
+          "courseId": 3
+      },
+      {
+          "id": 3,
+          "studentname": "Graham",
+          "password": "password!",
+          "salt": "??",
+          "courseId": 2
+      },
+      {
+          "id": 4,
+          "studentname": "Steve",
+          "password": "password!",
+          "salt": "??",
+          "courseId": 1
+      },
+      {
+          "id": 5,
+          "studentname": "Sam",
+          "password": "password!",
+          "salt": "??",
+          "courseId": 1
+      }
+  ],
+  "Devices": [
+      {
+          "id": 1,
+          "name": "Macbook pro 1",
+          "available":  false,
+          "type": "laptop"
+      },
+      {
+          "id": 2,
+          "name": "Macbook pro 2",
+          "available":  true,
+          "type": "laptop"
+      },
+      {
+          "id": 3,
+          "name": "Macbook pro 3",
+          "available":  false,
+          "type": "laptop"
+      },
+      {
+          "id": 4,
+          "name": "Macbook pro 4",
+          "available": true,
+          "type": "laptop"
+      },
+      {
+          "id": 5,
+          "name": "Macbook pro0 5",
+          "available": false,
+          "type": "laptop"
+      },
+      {
+          "id": 6,
+          "name": "Media Camera 1",
+          "available": true,
+          "type": "camera"
+      },
+      {
+          "id": 7,
+          "name": "Media Camera 2",
+          "available": true,
+          "type": "camera"
+      },
+      {
+          "id": 8,
+          "name": "Media Camera 3",
+          "available": false,
+          "type": "camera"
+      },
+      {
+          "id": 9,
+          "name": "Apple Iphone 1",
+          "available": true,
+          "type": "mobilePhone"
+      },
+      {
+          "id": 10,
+          "name": "Apple Iphone 2",
+          "available": true,
+          "type": "mobilePhone"
+      },
+      {
+          "id": 11,
+          "name": "Android Phone 1",
+          "available": true,
+          "type": "mobilePhone"
+      },
+      {
+          "id": 12,
+          "name": "Android Phone 2",
+          "available": false,
+          "type": "mobilePhone"
+      }
+  ]
+}
