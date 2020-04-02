@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Container from '@material-ui/core/Container';
-import AvailableDevicePage from '../';
+import ComparePage from '../';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -17,12 +17,12 @@ const initialState = {
 }
 const store = mockStore(initialState);
 
-describe('AvailableDevicePage: test suite', () => {
+describe('ComparePage: test suite', () => {
 
-    it('Should render AvailableDevicePage', () => {
-        const storeWrapper = shallow(<AvailableDevicePage store={store} />).dive();
-        const availableDevicePageWrapper = storeWrapper.dive();
-        expect(availableDevicePageWrapper.exists(Container)).toBe(true);
+    it('Should render ComparePage', () => {
+        const storeWrapper = shallow(<ComparePage store={store}/>).dive();
+        const comparePageWrapper = storeWrapper.dive();
+        expect(comparePageWrapper.exists(Container)).toBe(true);
     })
 
 });
