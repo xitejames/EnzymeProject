@@ -6,13 +6,14 @@ import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import LaptopIcon from '@material-ui/icons/Laptop';
 import DevicesIcon from '@material-ui/icons/Devices';
 import DeviceTable from '../Common/DeviceTable';
-
+import { addToCompareList } from '../../Redux/Actions/CompareActions';
+import { addAllToDeviceList } from '../../Redux/Actions/DeviceActions';
+import { connect } from 'react-redux';
 
 class AvailableDevicePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            deviceList: [],
             selectedDevices: [],
             compareList: [],
             rowCount: 0,
@@ -21,9 +22,13 @@ class AvailableDevicePage extends Component {
     }
 
     fetchDevices = () => {
+        const { addAllToDeviceList } = this.props;
         fetch('http://localhost:4000/Devices')
             .then(res => res.json())
-            .then(deviceList => this.setState({ deviceList, rowCount: deviceList.length }))
+            .then(deviceList => {
+                addAllToDeviceList(deviceList);
+                this.setState({ rowCount: deviceList.length });
+            });
     }
 
     getDeviceIcon = (deviceType) => {
@@ -40,7 +45,7 @@ class AvailableDevicePage extends Component {
     }
 
     handleSelectAllClick = (event) => {
-        const { deviceList } = this.state;
+        const { deviceList } = this.props;
         if (event.target.checked) {
             const newSelectedIds = deviceList.map((n) => n.id);
             this.setState({ selectedDevices: newSelectedIds, numSelected: newSelectedIds.length });
@@ -61,7 +66,7 @@ class AvailableDevicePage extends Component {
 
     addToCompare = (event, id) => {
         const { deviceList, compareList } = this.state;
-        const allDevicesToCompare = deviceList.filter((device)=> device.id === id );
+        const allDevicesToCompare = deviceList.filter((device) => device.id === id);
         this.setState({ compareList: [...compareList, allDevicesToCompare] })
     }
 
@@ -70,7 +75,8 @@ class AvailableDevicePage extends Component {
     }
 
     render() {
-        const { deviceList, numSelected, rowCount, selectedDevices } = this.state;
+        const { numSelected, rowCount, selectedDevices } = this.state;
+        const { deviceList } = this.props;
         return (
             <Container component="main" style={{ width: '80%', height: '95%' }}>
                 <Paper style={{ height: '100%' }}>
@@ -82,7 +88,7 @@ class AvailableDevicePage extends Component {
                         onSingleSelectClick={this.handleSingleSelectClick}
                         numSelected={numSelected}
                         rowCount={rowCount}
-                        addToCompare={this.addToCompare}
+                        addToCompare={this.props.addToCompareList}
                     />
                 </Paper>
             </Container>
@@ -90,4 +96,14 @@ class AvailableDevicePage extends Component {
     }
 }
 
-export default AvailableDevicePage; 
+const mapStateToProps = state => ({
+    compare: state.compare,
+    deviceList: state.device.deviceList,
+});
+
+const mapDispatchToProps = dispatch => ({
+    addToCompareList: idArray => dispatch(addToCompareList(idArray)),
+    addAllToDeviceList: deviceArray => dispatch(addAllToDeviceList(deviceArray)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AvailableDevicePage); 

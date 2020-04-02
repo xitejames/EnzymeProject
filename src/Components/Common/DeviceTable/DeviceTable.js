@@ -74,7 +74,7 @@ const DeviceTable = (props) => {
                             <TableCell>{device.available ? 'available' : 'unavailable'}</TableCell>
                             <TableCell>{getDeviceIcon(device.type)}</TableCell>
                             <TableCell>
-                                <CustomButton title="Compare" onClick={(event) => addToCompare(event, device.id)} />      
+                                <CustomButton title="Compare" onClick={(event) => addToCompare(device.id)} />      
                             </TableCell>
                         </TableRow>
                     );

@@ -4,13 +4,13 @@ import {
   Route
 } from "react-router-dom";
 import AvailableDevicePage from '../Components/AvailableDevicePage'
-import ReservePage from '../Components/ReservePage'
+import ComparePage from '../Components/ComparePage'
 
 
 const WebsiteRoutes = () => (
   <Switch>
     <Route exact path='/' component={AvailableDevicePage} />
-    <Route exact path='/reserve' component={ReservePage} />
+    <Route exact path='/reserve' component={ComparePage} />
   </Switch>
 )
 
