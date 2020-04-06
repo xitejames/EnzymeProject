@@ -26,6 +26,7 @@ class AvailableDevicePage extends Component {
         fetch('http://localhost:4000/Devices')
             .then(res => res.json())
             .then(deviceList => {
+                console.log(deviceList)
                 addAllToDeviceList(deviceList);
                 this.setState({ rowCount: deviceList.length });
             });
