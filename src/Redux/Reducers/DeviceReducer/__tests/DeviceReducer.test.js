@@ -10,7 +10,7 @@ const deviceData = [
 ]
 
 describe('DeviceReducer', () => {
-    it('ADD_TO_COMPARE_LIST correct actionnpm sta', () => {
+    it('ADD_TO_COMPARE_LIST correct actions', () => {
         const payload = deviceData
         const expectedAction = {
             type: ADD_ALL_TO_DEVICE_LIST,
