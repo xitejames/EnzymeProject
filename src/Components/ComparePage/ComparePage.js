@@ -8,7 +8,7 @@ class ComparePage extends Component {
     render() {
         const { deviceList, compareList, removeFromCompareList } = this.props;
         return(
-            <Container component="main" style={{width: '80%'}}>
+            <Container component="main" style={{width: '80%', height: '100%'}}>
 
                 {deviceList.map((currentDevice) => {
                     if(compareList.includes(currentDevice.id)){

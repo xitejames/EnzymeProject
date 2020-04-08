@@ -15,7 +15,6 @@ class AvailableDevicePage extends Component {
         super(props);
         this.state = {
             selectedDevices: [],
-            compareList: [],
             rowCount: 0,
             numSelected: 0,
         }
@@ -63,12 +62,6 @@ class AvailableDevicePage extends Component {
             const deviceListWithRemovedId = selectedDevices.filter((deviceId) => deviceId !== id);
             this.setState({ selectedDevices: deviceListWithRemovedId, numSelected: numSelected - 1 });
         }
-    }
-
-    addToCompare = (event, id) => {
-        const { deviceList, compareList } = this.state;
-        const allDevicesToCompare = deviceList.filter((device) => device.id === id);
-        this.setState({ compareList: [...compareList, allDevicesToCompare] })
     }
 
     componentDidMount() {
