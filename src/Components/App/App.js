@@ -1,33 +1,21 @@
 // Third party stuff
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-
-// Our stuff
-import WebsiteRoutes from '../../Configuration/WebsiteRoutes';
-import SideBarList from '../Common/SideBarList';
-
-const drawerWidth = 240;
+import TimeToLeave from '@material-ui/icons/TimeToLeave';
+import GridLayout from '../Common/GridLayout'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    height: '100vh'
+    height: '98vh'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
+    backgroundColor: "#FF4500"
   },
   content: {
     flexGrow: 1,
@@ -44,25 +32,15 @@ const App = () => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap>
-            Generic Rental Service
+          <TimeToLeave />
+          <Typography variant="h6" style={{marginLeft: 30}} noWrap>
+            Car Journey Service
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.toolbar} />
-        <SideBarList />
-        <Divider />
-      </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-          <WebsiteRoutes />
+        <GridLayout />
       </main>
     </div>
   );

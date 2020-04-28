@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import CompareReducer from './CompareReducer'
-import DeviceReducer from './DeviceReducer'
+// import CarReducer from './JourneyReducer'
+import JourneyReducer from './JourneyReducer'
 
 const rootReducer = combineReducers({
-    compare: CompareReducer,
-    device: DeviceReducer,
+    // Cars: CarReducer,
+    Journeys: JourneyReducer,
 });
 
 export default rootReducer;
